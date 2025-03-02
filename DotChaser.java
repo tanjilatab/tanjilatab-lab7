@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class DotChaser {
-  public static Random rand = new Random(System.currentTimeMillis());
+  // public static Random rand = new Random(System.currentTimeMillis());
 
   /**
    * A "Thing" moves in a grid world. A TypeA Thing randomly
@@ -11,6 +11,8 @@ public class DotChaser {
    *
    * A STATIC CLASS? OH NO! GET IT OUT OF HERE!
    */
+  
+  /*
   public static class Thing {
     // dir: 0=North, 1=East, 2=South, 3=West.
     // timeSinceLast: this is only important for "TypeB" Things.
@@ -25,6 +27,7 @@ public class DotChaser {
    *       WE DON'T HAVE TO USE NODES HERE?
    * This class is for linked lists of Thing's
    */
+  /*
   public static class Node {
     public Thing data;
     public Node  next;
@@ -90,6 +93,7 @@ public class DotChaser {
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
     Node L = null;
     int count = 0;
+    ThingList list = new ThingList();
 
     while( true ) {
       // Every N rounds, add another typeA and typeB Thing.
@@ -97,29 +101,23 @@ public class DotChaser {
 
         // Add a typeA thing to the list.
         // (GEE, THAT'S A LOT OF CODE FOR JUST CREATING ONE THING)
-        Thing tA = new Thing();
-        tA.row = 45;
-        tA.col = 50;
-        Node nA = new Node();
-        nA.data = tA;
-        nA.next = L;
-        L       = nA;
+        Thing tA = new TypeA(45, 50, 0, 'r');
 
         // Add a typeB thing to the list
-        Thing tB = new Thing();
-        tB.row     = 55;
-        tB.col     = 50;
-        tB.lab     = 'b';
-        tB.isTypeB = true;
-        Node nB = new Node();
-        nB.data = tB;
-        nB.next = L;
-        L       = nB;
+        Thing tB = new TypeB(55, 50, 0, 'b');
+        
+        // Add a typeC thing to the list
+        Thing tC = new TypeC(55, 50, 0, 'y');
+
+        list.addThing(tA);
+        list.addThing(tB);
+        list.addThing(tC);
       }
 
       // Print out each thing.
       // (SEEMS LIKE A NICE PRINTALL() METHOD CALL WOULD WORK HERE)
       // (SEEMS LIKE A toString() METHOD IN THE CLASS WOULD ALSO BE NICE)
+      /*
       for( Node T = L; T != null; T = T.next )
         System.out.println(T.data.row + " " + T.data.col + " " + T.data.lab);
 
@@ -132,7 +130,11 @@ public class DotChaser {
         maybeTurn(T.data);
         step(T.data);
       }
+      */
       count++;
+      Random rand = new Random(System.currentTimeMillis());
+      list.printAll();
+      list.moveAll(rand);
     }
   }
 }
