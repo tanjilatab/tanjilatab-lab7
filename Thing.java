@@ -1,11 +1,33 @@
 import java.util.*
 
 public abstract class Thing {
+    
+    public Random rand = new Random (System.currentTimeMillis());
+
+    protected int row;
+    protected int col;
+    protected int dir;
+    int timeSinceLast;
+    protected char lab = 'r';
+    boolean isTypeB;
+
+    public Thing (int row, int col, int dir, char lab) {
+        this.row = row;
+        this.col = col;
+        this.dir = dir;
+        this.lab = lab;
+    }
+
+}
+
+/*
     // dir: 0=North, 1=East, 2=South, 3=West.
     // timeSinceLast: this is only important for "TypeB" Things.
     public int row, col, dir, timeSinceLast;
     public char lab = 'r';
     public boolean isTypeB;
+
+*/
 
     public void rightTurn(Thing t) {
     t.dir = (t.dir + 1) % 4;
