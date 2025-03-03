@@ -27,7 +27,7 @@ public abstract class Thing {
     }
 
     public void step() {
-        final int[] dc = {0, 1, 0, -1};
+        final int[] dc = {0, 1, 0, -1},
                     dr = {1, 0, -1, 0};
 
         if (dir >= 0 && dir < dc.length) {
@@ -35,7 +35,7 @@ public abstract class Thing {
             row += dr[dir];
         }
     }
-    
+
     public abstract void maybeTurn (Random rand);
 }
 

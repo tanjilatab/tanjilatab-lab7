@@ -14,7 +14,7 @@ public class ThingList {
     }
 
     public void addThing (Thing t) {
-        node newThing = new Node(t);
+        Node newThing = new Node(t);
         Node temp = head;
 
         if (head == null) {

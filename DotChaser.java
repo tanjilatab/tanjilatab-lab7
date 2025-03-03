@@ -12,7 +12,6 @@ public class DotChaser {
       N = Integer.parseInt(args[0]);
 
     // INSTEAD OF A NODE, CREATE SOMETHING MORE USER-FRIENDLY.
-    Node L = null;
     int count = 0;
     ThingList list = new ThingList();
 
