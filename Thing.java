@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.*;
 
 public abstract class Thing {
     
@@ -18,6 +18,25 @@ public abstract class Thing {
         this.lab = lab;
     }
 
+    public void rightTurn() {
+        this.dir = (dir + 1) % 4;
+    }
+
+    public void leftTurn() {
+        this.dir = (dir + 3) % 4;
+    }
+
+    public void step() {
+        final int[] dc = {0, 1, 0, -1};
+                    dr = {1, 0, -1, 0};
+
+        if (dir >= 0 && dir < dc.length) {
+            col += dc[dir];
+            row += dr[dir];
+        }
+    }
+
+    public abstract void maybeTurn (Random rand);
 }
 
 /*
@@ -29,7 +48,7 @@ public abstract class Thing {
 
 */
 
-    public void rightTurn(Thing t) {
+ /* public void rightTurn(Thing t) {
     t.dir = (t.dir + 1) % 4;
   }
 
@@ -75,3 +94,4 @@ public abstract class Thing {
     t.col += dc[t.dir];
   }
   }
+  */
