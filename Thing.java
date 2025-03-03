@@ -35,7 +35,7 @@ public abstract class Thing {
             row += dr[dir];
         }
     }
-
+    
     public abstract void maybeTurn (Random rand);
 }
 
